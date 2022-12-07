@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePendaftaranTable extends Migration
+class CreateThumnailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreatePendaftaranTable extends Migration
      */
     public function up()
     {
-        Schema::create('pendaftaran', function (Blueprint $table) {
+        Schema::create('thumnails', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->longText('description');
+            $table->string('date');
+            $table->text('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreatePendaftaranTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pendaftaran');
+        Schema::dropIfExists('thumnails');
     }
 }
