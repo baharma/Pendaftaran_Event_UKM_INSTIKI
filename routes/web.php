@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'dashboardController@index')->name('dashboard');
 Route::resource('ukmlist', 'ListUkmController');
+Route::resource('postevent', 'PostController');
