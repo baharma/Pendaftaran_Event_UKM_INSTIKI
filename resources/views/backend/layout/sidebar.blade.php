@@ -28,9 +28,9 @@
             </div>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{route('ukmlist.index')}}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>UKM</span></a>
+                    <span>UKM List</span></a>
             </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">

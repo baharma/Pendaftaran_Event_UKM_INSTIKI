@@ -1,0 +1,142 @@
+body {
+  background-color: #F6F6F6;
+}
+
+.gelasio-regular {
+  font-family: "Gelasio", serif;
+}
+
+.gelasio-bold {
+  font-family: "Gelasio", serif;
+  font-weight: bold;
+}
+
+.image-instiki {
+  background-image: url("../img/DSC04317.jpg");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-header {
+  margin-top: -50px;
+}
+
+.content-ukm {
+  margin: auto;
+  margin-top: -150px;
+}
+
+.no-radius {
+  border-radius: 0;
+  border: 0;
+}
+
+.content-red {
+  background-color: #600202;
+}
+
+.about {
+  padding: 5px;
+}
+
+.about-instiki .body-card a {
+  font-style: italic;
+  color: #77A2F4;
+}
+.about-instiki .body-card .gelasio-bold {
+  margin-top: 20px;
+}
+.about-instiki .body-card .gelasio-bold span {
+  color: #D43E3E;
+}
+
+.color-white {
+  color: white;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.about-ukm {
+  padding: 20px !important;
+}
+.about-ukm .btn-border-yellow {
+  text-decoration: none !important;
+  color: white;
+  padding: 10px;
+  width: 150px;
+  background-color: #FFAE00;
+  border-radius: 5px;
+}
+.about-ukm .btn-border-yellow {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  background-color: #FFAE00;
+  border-radius: 5px;
+}
+.about-ukm .dist-tas {
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.about-ukm .dist-tas a {
+  text-decoration: none !important;
+  color: white;
+  padding: 10px;
+  background-color: #FFAE00;
+  border-radius: 5px;
+}
+.about-ukm .date {
+  margin-bottom: -5px;
+}
+.about-ukm h1 {
+  text-align: center;
+}
+.about-ukm h1 span {
+  color: #FFAE00;
+}
+
+.slide-cut {
+  padding: 30px;
+}
+.slide-cut .red {
+  text-align: center;
+  color: #600202;
+}
+
+.main-content {
+  margin: auto;
+}
+
+.red-btn {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: #600202;
+  width: 200px;
+  text-align: center;
+}
+
+.sub {
+  height: 500px !important;
+  background-color: #F4DAA1;
+  padding: 30px;
+}
+.sub h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+.sub p {
+  margin-top: 40px;
+}
+.sub .btn {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.table-bottom {
+  margin-top: 40px;
+}/*# sourceMappingURL=main.css.map */
