@@ -14,7 +14,7 @@ class CreateThumnailsTable extends Migration
     public function up()
     {
         Schema::create('thumnails', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title');
             $table->longText('description');
             $table->string('date');
