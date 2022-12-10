@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'dashboardController@index')->name('dashboard');
-Route::resource('ukmlist', 'ListUkmController');
-Route::resource('postevent', 'PostController');
+Route::get('/', 'HomeController@index');
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'dashboardController@index')->name('dashboard');
+    Route::resource('ukmlist', 'ListUkmController');
+    Route::resource('postevent', 'PostController');
+});
