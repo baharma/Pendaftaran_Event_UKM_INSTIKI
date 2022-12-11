@@ -37,9 +37,34 @@
                     <a class="nav-link" href="#">Reset & Inovasi</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <button class="btn btn-tranparan gelasio-regular" type="submit">Login</button>
-                </form>
+                <div class="d-flex" role="search">
+                  @guest
+                  <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a href="{{route('logins')}}" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route('register')}}" class="nav-link">Register</a>
+                    </li>
+                  </ul>
+                  @else
+           
+                  <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{Auth::user()->name}}
+                    </a>
+                  
+                    <ul class="dropdown-menu">
+                      <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                          @csrf
+                          <button type="submit" class="dropdown-item">Logout</button>
+                      </form>
+                      </li>
+                    </ul>
+                  </div>
+                  @endguest
+                </div>
               </div>
             </div>
           </nav>
@@ -183,8 +208,10 @@
       </div>
       <!-- Copyright -->
     </footer>
+    
     <script src="{{asset('pendaftran_ukm/bootstrap/js/bootstrap.js')}}"></script>
     <script src="{{asset('pendaftran_ukm/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
