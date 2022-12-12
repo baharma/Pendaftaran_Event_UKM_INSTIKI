@@ -19,10 +19,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', 'dashboardController@index')->name('dashboard');
     Route::resource('ukmlist', 'ListUkmController');
     Route::resource('postevent', 'PostController');
+    Route::resource('thumnail', 'ThumnailController');
 });
 
 
-
+Route::get('detail/{id}', 'HomeController@show');
 
 
 Route::get('register', 'RegisterContriller@create')->name('register');

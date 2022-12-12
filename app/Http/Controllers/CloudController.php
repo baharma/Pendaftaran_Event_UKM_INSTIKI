@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use App\Thumnail;
+use App\Cloud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class ThumnailController extends Controller
+class CloudController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,7 @@ class ThumnailController extends Controller
      */
     public function index()
     {
-        $items = Thumnail::with('postID')->paginate('5');
-        return view(
-            'backend.inlclude.thumnail.index',
-            ['items' => $items]
-        );
+        //
     }
 
     /**
@@ -29,11 +25,7 @@ class ThumnailController extends Controller
      */
     public function create()
     {
-        $items = Post::all();
-        return view(
-            'backend.inlclude.thumnail.create',
-            ['items' => $items]
-        );
+        //
     }
 
     /**
@@ -47,23 +39,25 @@ class ThumnailController extends Controller
         if ($request->file('image')) {
             $image = $request->file('image');
             $filename = date('YmdHi') . $image->getClientOriginalName();
-            $image->move(public_path('public/Image'), $filename);
-
-            $dataarray = $request->all();
-
-            $dataarray['image'] = $filename;
-            Thumnail::create($dataarray);
-            return redirect()->back();
+            $gcs = Storage::disk('gcs');
+            $disk = Storage::disk('gcs')->put($filename, file_get_contents($image));
+            $url = $gcs->url('public/Image' . "/" . $$filename . ".jpg");
+            $dataarray = array(
+                'title' => $request->title,
+                'image' => $url,
+            );
         }
+        Cloud::create($dataarray);
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Thumnail  $thumnail
+     * @param  \App\Cloud  $cloud
      * @return \Illuminate\Http\Response
      */
-    public function show(Thumnail $thumnail)
+    public function show(Cloud $cloud)
     {
         //
     }
@@ -71,10 +65,10 @@ class ThumnailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Thumnail  $thumnail
+     * @param  \App\Cloud  $cloud
      * @return \Illuminate\Http\Response
      */
-    public function edit(Thumnail $thumnail)
+    public function edit(Cloud $cloud)
     {
         //
     }
@@ -83,10 +77,10 @@ class ThumnailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Thumnail  $thumnail
+     * @param  \App\Cloud  $cloud
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Thumnail $thumnail)
+    public function update(Request $request, Cloud $cloud)
     {
         //
     }
@@ -94,10 +88,10 @@ class ThumnailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Thumnail  $thumnail
+     * @param  \App\Cloud  $cloud
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Thumnail $thumnail)
+    public function destroy(Cloud $cloud)
     {
         //
     }

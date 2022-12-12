@@ -118,18 +118,25 @@
 
     <div class="container main-content row shadow-sm">
       <div class="col-8 ">
+        @forelse($items as $item)
         <div class="body-card-body card no-radius p-3">
-          <h1 class="gelasio-bold">Debat Literasi Event</h1>
-          <p class="date">20 februari, 2021</p>
+          <h1 class="gelasio-bold">{{$item->title}}</h1>
+          <p class="date">{{$item->date}}</p>
   
-          <p class="decs">There are many variations of passages of Lorem Ipsum available, but the majority have
-            suffered alteration in some form, by injected humour, or randomised words which don't
-            look even slightly believable. If you are going
+          <p class="decs">
+            {{$item->description}}
            </p>
-          <img src="{{asset('pendaftran_ukm/img/DSC00061-1-scaled.jpg')}}" alt="" height="400px">
-          <a href="#" class="red-btn mt-5">Read More</a>
+          <img src="{{url('public/Image/'.$item->image)}}" alt="" height="400px">
+          <a href="detail/{{$item->id_post}}" class="red-btn mt-5">Read More</a>
         </div>
+        @empty
+        <div class="body-card-body card no-radius p-3">
+          <h1 class="gelasio-bold">Belum ada Post</h1>
+        </div>
+        @endforelse
+     
       </div>
+      {{ $items->links() }}
       <div class="col card no-radius ms-auto sub" >
         <h1>Get More Update</h1>
         <p>There are many variations of passages of Lorem Ipsum available, but the majority have

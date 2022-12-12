@@ -33,6 +33,11 @@
                     <span>UKM List</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('thumnail.index')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Thumnail</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('postevent.index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Post Event</span></a>
