@@ -24,11 +24,11 @@ class HomeController extends Controller
             ->first();
 
         $jadwal = $items->id;
-        $data = Jadwal::where($jadwal);
+        $data = Jadwal::findorfail($jadwal);
 
         return view(
             'frontend.layout.detail',
-            compact('items', 'data')
+            compact('data', 'items')
         );
     }
 }

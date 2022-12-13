@@ -53,7 +53,7 @@ class ThumnailController extends Controller
 
             $dataarray['image'] = $filename;
             Thumnail::create($dataarray);
-            return redirect()->back();
+            return redirect()->route('thumnail.index');
         }
     }
 
@@ -99,6 +99,9 @@ class ThumnailController extends Controller
      */
     public function destroy(Thumnail $thumnail)
     {
-        //
+        $items = Thumnail::find($thumnail->id);
+        unlink("public/Image" . $items->image_ukm);
+        Thumnail::where("id", $items->id)->delete();
+        return redirect()->back();
     }
 }

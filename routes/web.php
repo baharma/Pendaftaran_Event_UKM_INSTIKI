@@ -26,9 +26,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 Route::get('detail/{slug}', 'HomeController@show');
 
 
+
+
+//login & register
 Route::get('register', 'RegisterContriller@create')->name('register');
 Route::post('register', 'RegisterContriller@store');
-
 Route::get('logins', 'LoginController@create')->name('logins');
 Route::post('logins', 'LoginController@store');
 

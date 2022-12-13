@@ -35,11 +35,11 @@
     <div class="card shadow-sm p-5 mt-4">
         <div class="mb-3">
             <label for="namaukm" class="form-label">jadwal_mulai</label>
-            <input type="text" name="jadwal_mulai" class="form-control" >
+            <input type="date" name="jadwal_mulai" class="form-control" >
         </div>
         <div class="mb-3">
             <label for="JumlahAnggota" class="form-label">jadwal_berakhir</label>
-            <input type="text" name="jadwal_berakhir" class="form-control">
+            <input type="date" name="jadwal_berakhir" class="form-control">
         </div>
         <div class="mb-3">
             <label for="ketua" class="form-label">alamat_lokasi</label>
