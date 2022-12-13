@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Thumnail;
 use Illuminate\Http\Request;
+use App\Jadwal;
 
 class HomeController extends Controller
 {
@@ -16,8 +17,18 @@ class HomeController extends Controller
             ['items' => $items]
         );
     }
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $items = Post::with(['ukm_list'])
+            ->where('slug', $slug)
+            ->first();
+
+        $jadwal = $items->id;
+        $data = Jadwal::where($jadwal);
+
+        return view(
+            'frontend.layout.detail',
+            compact('items', 'data')
+        );
     }
 }

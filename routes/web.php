@@ -23,7 +23,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 });
 
 
-Route::get('detail/{id}', 'HomeController@show');
+Route::get('detail/{slug}', 'HomeController@show');
 
 
 Route::get('register', 'RegisterContriller@create')->name('register');
@@ -33,3 +33,5 @@ Route::get('logins', 'LoginController@create')->name('logins');
 Route::post('logins', 'LoginController@store');
 
 Route::post('logout', 'LogoutController@logout')->name('logout');
+
+Route::resource('ujicoba', CloudController::class);
